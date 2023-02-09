@@ -1,0 +1,20 @@
+{
+    "name": "799/php2",
+    "autoload": {
+        "psr-4": {
+            "Php2\\": "src/"
+        },
+        "files": [
+            "database/config/config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Litvinov"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.21",
+        "ext-pdo": "*"
+    }
+}
