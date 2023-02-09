@@ -2,13 +2,13 @@
 
 namespace Php2\Traits;
 
-use DateTimeImmutable;
+use Php2\Date\DateTime;
 
 trait Created
 {
-    private DateTimeImmutable $createdAt;
+    private DateTime $createdAt;
 
-    public function getCreatedAt(): DateTimeImmutable
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }

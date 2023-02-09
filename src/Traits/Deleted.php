@@ -2,13 +2,14 @@
 
 namespace Php2\Traits;
 
-use DateTimeImmutable;
+use Php2\Date\DateTime;
+
 
 trait Deleted
 {
-    private DateTimeImmutable $deletedAt;
+    private DateTime $deletedAt;
 
-    public function getDeletedAt(): DateTimeImmutable
+    public function getDeletedAt(): DateTime
     {
         return $this->deletedAt;
     }

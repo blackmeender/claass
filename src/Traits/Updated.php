@@ -2,14 +2,15 @@
 
 namespace Php2\Traits;
 
-use DateTimeImmutable;
+use Php2\Date\DateTime;
+
 
 trait Updated
 {
-    private DateTimeImmutable $updatedAt;
+    private DateTime $updatedAt;
 
 
-    public function getUpdatedAt(): DateTimeImmutable
+    public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
     }

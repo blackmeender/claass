@@ -1,15 +1,10 @@
 <?php
 
-use Php2\Connection\SqLiteConnector;
-
-
+use Php2\User\Entities\User;
+use Php2\Repositories\UserRepository;
 
 require_once __DIR__ . '/autoload_runtime.php';
 
-$now = new DateTimeImmutable();
-$connection = SqLiteConnector::getConnection();
-$connection
-    ->exec(
-        "insert into user (first_name, last_name, created_at) 
-        values ('Ivan', 'Ivanov', {$now->format('Y-m-d H:i:s')})"
-    );
+$userRepository = new UserRepository();
+$user = new User('Denis', 'Kovalev');
+$userRepository->save($user);
