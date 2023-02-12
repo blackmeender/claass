@@ -10,3 +10,18 @@
 --    deleted_at datetime NULL
 -- )
 
+-- CREATE TABLE post
+-- (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     user_id INTEGER,
+--     header TEXT,
+--     text TEXT
+-- )
+
+-- CREATE TABLE comment
+-- (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     post_id INTEGER,
+--     user_id INTEGER,
+--     text TEXT
+-- )

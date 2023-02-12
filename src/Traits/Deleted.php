@@ -7,14 +7,14 @@ use Php2\Date\DateTime;
 
 trait Deleted
 {
-    private DateTime $deletedAt;
+    private ?DateTime $deletedAt = null;
 
-    public function getDeletedAt(): DateTime
+    public function getDeletedAt(): ?DateTime
     {
         return $this->deletedAt;
     }
 
-    public function setDeletedAt($deletedAt): self
+    public function setDeletedAt(?DateTime $deletedAt = null): self
     {
         $this->deletedAt = $deletedAt;
 
