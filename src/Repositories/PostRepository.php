@@ -37,38 +37,35 @@ class PostRepository implements PostRepositoryInterface
         );
     }
 
-    // public function get(int $id): Post
-    // {
-    //     $statement = $this->connection->prepare(
-    //         'select * from user where id = :userId'
-    //     );
+    public function get(int $id): Post
+    {
+        $statement = $this->connection->prepare(
+            'select * from post where id = :postId'
+        );
 
-    //     $statement->execute(
-    //         [
-    //             ':userId' => $id
-    //         ]
-    //     );
+        $statement->execute(
+            [
+                ':postId' => $id
+            ]
+        );
 
-    //     $userObj = $statement->fetch(PDO::FETCH_OBJ);
-
-
-    //     if (!$userObj) {
-    //         throw new PostNotFoundExeption("Post with id: $id not found");
-    //     }
-
-    //     // $createdAt = new DateTime($userObj->created_at);
-    //     // var_dump($createdAt);
-    //     // die();
-
-    //     $user = new User($userObj->first_name, $userObj->last_name, $userObj->created_at);
-    //     $user
-    //         ->setId($userObj->id)
-    //         ->active($userObj->active)
-    //         ->setCreatedAt(new DateTime($userObj->created_at))
-    //         ->setUpdatedAt(($updatedAt = $userObj->updated_at) ? new DateTime($updatedAt) : null)
-    //         ->setDeletedAt(($deletedAt = $userObj->deleted_at) ? new DateTime($deletedAt) : null);
+        $postObj = $statement->fetch(PDO::FETCH_OBJ);
 
 
-    //     return $user;
-    // }
+        if (!$postObj) {
+            throw new PostNotFoundExeption("Post with id: $id not found");
+        }
+
+        // $createdAt = new DateTime($userObj->created_at);
+        // var_dump($createdAt);
+        // die();
+
+        $userRepository = new UserRepository();
+        $user = $userRepository->get($postObj->user_id);
+        $post = new Post($user,  $postObj->header, $postObj->text);
+        $post->setId($postObj->id);
+
+
+        return $post;
+    }
 }

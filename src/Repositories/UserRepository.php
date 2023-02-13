@@ -60,7 +60,7 @@ class UserRepository implements UserRepositoryInterface
 
 
 
-        $user = new User($userObj->first_name, $userObj->last_name, $userObj->created_at);
+        $user = new User($userObj->first_name, $userObj->last_name);
 
         // $createdAt = $user->setCreatedAt(new DateTime($userObj->created_at));
         // var_dump($createdAt);

@@ -10,7 +10,7 @@ class Comment
 {
     use Id;
     public function __construct(
-        private User $user,
+        private User $author,
         private Post $post,
         private string $text
     ) {
@@ -24,6 +24,30 @@ class Comment
     public function setText($text)
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function setPost($post)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
 
         return $this;
     }
