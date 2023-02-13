@@ -18,6 +18,7 @@
 --     text TEXT
 -- )
 
+
 -- CREATE TABLE comment
 -- (
 --     id INTEGER PRIMARY KEY AUTOINCREMENT,
