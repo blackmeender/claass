@@ -20,6 +20,7 @@ class User
     public function __construct(
         private string $firstName,
         private string $lastName,
+        private string $email
     ) {
         $this->createdAt = new DateTime();
     }
@@ -32,5 +33,10 @@ class User
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
     }
 }
