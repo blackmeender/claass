@@ -7,7 +7,8 @@
 --    last_name TEXT,
 --    created_at datetime NOT NULL,
 --    updated_at datetime NULL,
---    deleted_at datetime NULL
+--    deleted_at datetime NULL,
+--    email TEXT UNIQUE
 -- )
 
 -- CREATE TABLE post

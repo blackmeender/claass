@@ -2,7 +2,8 @@
     "name": "799/php2",
     "autoload": {
         "psr-4": {
-            "Php2\\": "src/"
+            "Php2\\": "src/",
+            "Test\\": "tests/"
         },
         "files": [
             "database/config/config.php"
@@ -16,5 +17,11 @@
     "require": {
         "fakerphp/faker": "^1.21",
         "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0.7"
+    },
+    "scripts": {
+        "test": "phpunit tests --testdox --colors"
     }
 }
