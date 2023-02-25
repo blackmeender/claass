@@ -55,7 +55,7 @@ class CreateUserCommand implements CreateUserCommandInterface
     private function userExist(string $email)
     {
         try {
-            $this->userRepository->findUseByEmail($email);
+            $this->userRepository->findUserByEmail($email);
         } catch (UserNotFoundException $exception) {
             return false;
         }
