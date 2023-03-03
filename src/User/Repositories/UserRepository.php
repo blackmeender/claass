@@ -42,7 +42,7 @@ class UserRepository implements UserRepositoryInterface
         return $this->mapUser($userObj);
     }
 
-    public function findUseByEmail(string $email): User
+    public function findUserByEmail(string $email): User
     {
         $statement = $this->connection->prepare(
             'select * from user where email = :email'
