@@ -23,8 +23,7 @@ class FindUserByEmailHandlerTest extends TestCase
         $dataName = '',
         private ?UserRepositoryInterface $userRepository = null,
         private ?UserSearchHandlerInterface $userSearchHandler = null
-    )
-    {
+    ) {
         $this->userRepository ??= new UserRepository();
         $this->userSearchHandler = $this->userSearchHandler ?? new UserSearchHandler($this->userRepository);
         parent::__construct($name, $data, $dataName);
@@ -75,9 +74,8 @@ class FindUserByEmailHandlerTest extends TestCase
             ) {
             }
 
-            public function save(User $user):void
+            public function save(User $user): void
             {
-
             }
             public function get(int $id): User
             {
@@ -86,10 +84,8 @@ class FindUserByEmailHandlerTest extends TestCase
 
             public function findUserByEmail(string $email): User
             {
-                foreach ($this->users as $user)
-                {
-                    if ($user instanceof User && $email === $user->getEmail())
-                    {
+                foreach ($this->users as $user) {
+                    if ($user instanceof User && $email === $user->getEmail()) {
                         return $user;
                     }
                 }

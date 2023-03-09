@@ -14,10 +14,8 @@ class UserRepository implements UserRepositoryInterface
 {
     private PDO $connection;
 
-    public function __construct(private ?ConnectorInterface $connector = null)
+    public function __construct(private ?ConnectorInterface $connector)
     {
-        $this->connector = $connector ?? new SqLiteConnector();
-
         $this->connection = $this->connector->getConnection();
     }
 

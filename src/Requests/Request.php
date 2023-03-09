@@ -3,7 +3,7 @@
 namespace Php2\Requests;
 
 use Exception;
-use HttpException;
+
 
 class Request
 {

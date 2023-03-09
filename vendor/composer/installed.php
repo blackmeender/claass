@@ -3,7 +3,7 @@
         'name' => '799/php2',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '803428ffd47b24480afc39bfcbea8c732f77d471',
+        'reference' => 'b589756226b81ac9887342cec3b66a86404fcc09',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '799/php2' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '803428ffd47b24480afc39bfcbea8c732f77d471',
+            'reference' => 'b589756226b81ac9887342cec3b66a86404fcc09',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
