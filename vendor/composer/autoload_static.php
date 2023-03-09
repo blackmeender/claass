@@ -7,13 +7,23 @@ namespace Composer\Autoload;
 class ComposerStaticInit1435be18ac3ceb9158ef6f46cbd6f523
 {
     public static $files = array (
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         'd28594814aa86b3444cd10377d9afece' => __DIR__ . '/../..' . '/database/config/config.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Test\\' => 5,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\HttpFoundation\\' => 33,
+        ),
         'P' => 
         array (
             'Psr\\Container\\' => 14,
@@ -31,6 +41,18 @@ class ComposerStaticInit1435be18ac3ceb9158ef6f46cbd6f523
     );
 
     public static $prefixDirsPsr4 = array (
+        'Test\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\HttpFoundation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-foundation',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -537,7 +559,6 @@ class ComposerStaticInit1435be18ac3ceb9158ef6f46cbd6f523
         'PHPUnit\\Metadata\\BackupStaticProperties' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/BackupStaticProperties.php',
         'PHPUnit\\Metadata\\Before' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Before.php',
         'PHPUnit\\Metadata\\BeforeClass' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/BeforeClass.php',
-        'PHPUnit\\Metadata\\CodeCoverageIgnore' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/CodeCoverageIgnore.php',
         'PHPUnit\\Metadata\\Covers' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Covers.php',
         'PHPUnit\\Metadata\\CoversClass' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/CoversClass.php',
         'PHPUnit\\Metadata\\CoversDefaultClass' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/CoversDefaultClass.php',
