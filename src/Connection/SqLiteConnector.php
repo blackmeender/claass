@@ -8,9 +8,9 @@ class SqLiteConnector implements ConnectorInterface
 {
     public static PDO $pdo;
 
-    public function __construct( PDO $pdo)
+    public function __construct( PDO $dsn)
     {
-        self::$pdo = $pdo;
+        self::$pdo = $dsn;
     }
 
     public static function getConnection(): PDO

@@ -2,6 +2,11 @@
 
 namespace Test\Handlers;
 
+use Dotenv\Dotenv;
+use Exception;
+use PDO;
+use Php2\Connection\ConnectorInterface;
+use Php2\Connection\SqLiteConnector;
 use Php2\Exceptions\UserNotFoundException;
 use Php2\Handlers\UserSearchHandler;
 use Php2\Handlers\UserSearchHandlerInterface;
@@ -12,6 +17,7 @@ use Php2\User\Entities\User;
 use Php2\User\Repositories\UserRepository;
 use Php2\User\Repositories\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 
@@ -24,9 +30,74 @@ class FindUserByEmailHandlerTest extends TestCase
         private ?UserRepositoryInterface $userRepository = null,
         private ?UserSearchHandlerInterface $userSearchHandler = null
     ) {
-        $this->userRepository ??= new UserRepository();
-        $this->userSearchHandler = $this->userSearchHandler ?? new UserSearchHandler($this->userRepository);
+        Dotenv::createImmutable(__DIR__ . '/../../.env')->safeLoad();
+        $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE);
+        $connector = new class() implements ConnectorInterface
+        {
+
+            public function __construct(PDO $dsn)
+            {
+            }
+
+            public static function getConnection(): PDO
+            {
+                return new PDO(databaseConfig()['sqlite']['DATABASE_URL']);
+            }
+        };
+
+        $logger = new class() implements LoggerInterface {
+
+            public function emergency(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function alert(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function critical(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function error(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function warning(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function notice(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function info(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function debug(\Stringable|string $message, array $context = []): void
+            {
+
+            }
+
+            public function log($level, \Stringable|string $message, array $context = []): void
+            {
+
+            }
+        };
+
+        $this->userRepository ??= new UserRepository($connector);
+        $this->userSearchHandler = $this->userSearchHandler ?? new UserSearchHandler($this->userRepository, $logger);
         parent::__construct($name, $data, $dataName);
+
+        $this->userSearchHandler->handle($request);
     }
 
     /**
