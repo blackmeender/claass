@@ -6,9 +6,15 @@ use PDO;
 
 class SqLiteConnector implements ConnectorInterface
 {
+    public static PDO $pdo;
+
+    public function __construct( PDO $pdo)
+    {
+        self::$pdo = $pdo;
+    }
 
     public static function getConnection(): PDO
     {
-        return new PDO(databaseConfig()['sqlite']['DATABASE_URL']);
+        return self::$pdo;
     }
 }
