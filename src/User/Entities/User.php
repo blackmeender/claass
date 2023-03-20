@@ -20,9 +20,21 @@ class User
     public function __construct(
         private string $firstName,
         private string $lastName,
-        private string $email
+        private string $email,
+        private ?User $author = null
     ) {
         $this->createdAt = new DateTime();
+    }
+
+    public function getAuthor(): User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(User $author): self
+    {
+        $this->author = $author;
+        return $this;
     }
 
     public function getFirstName()

@@ -3,6 +3,7 @@
 namespace Php2\Requests;
 
 use Exception;
+use JsonException;
 
 
 class Request
@@ -47,5 +48,15 @@ class Request
         }
 
         return $value;
+    }
+
+    public function jsonBodyField(string $string)
+    {
+        try {
+
+        } catch (JsonException $exception)
+        {
+
+        }
     }
 }
