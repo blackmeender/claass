@@ -40,7 +40,7 @@ final class Argument
 
         return new self($arguments);
     }
-    public function get(string $argument): string
+    public function get(string $argument): mixed
     {
         if (!array_key_exists($argument, $this->arguments)) {
             throw new ArgumentException("no such argument: $argument");

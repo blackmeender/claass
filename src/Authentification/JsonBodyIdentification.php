@@ -9,7 +9,7 @@ use Php2\User\Entities\User;
 use Php2\User\Repositories\UserRepositoryInterface;
 use InvalidArgumentException;
 
-class JsonBodyIdentification implements IndentificationInterface
+class JsonBodyIdentification implements IdentificationInterface
 {
     public function __construct(private UserRepositoryInterface $userRepository)
     {
@@ -18,10 +18,11 @@ class JsonBodyIdentification implements IndentificationInterface
     public function user(Request $request): User
     {
         try {
-            $userId = $request->jsonBodyField('id');
+            $userId = $request->jsonBodyField('auth_user');
+            return $user = $this->userRepository->get($userId);
         } catch (HttpException $exception|InvalidArgumentException $exception)
         {
-            throw new AuthException();
+            throw new AuthException($exception->getMessage());
         }
     }
 }

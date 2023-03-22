@@ -6,5 +6,5 @@ use Php2\Argument\Argument;
 
 interface CreateUserCommandInterface
 {
-    public function handle(Argument $rargument): void;
+    public function handle(Argument $argument): void;
 }

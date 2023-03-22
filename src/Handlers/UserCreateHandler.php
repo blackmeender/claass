@@ -14,7 +14,7 @@ use Php2\Response\ErrorResponse;
 use Php2\Response\SuccessResponse;
 use Php2\User\Repositories\UserRepositoryInterface;
 use Psr\Log\LoggerInterface;
-use Php2\Authentification\IndentificationInterface;
+use Php2\Authentification\IdentificationInterface;
 
 
 class UserCreateHandler implements UserCreateHandlerInterface
@@ -30,7 +30,7 @@ class UserCreateHandler implements UserCreateHandlerInterface
 
     public function handle(Request $request): AbstractResponse
     {
-        $email = $request->query('email');
+        $email = $request->jsonBodyField('email');
         try {
             $argument = new Argument([
                 'email'=>$request->query('email'),
